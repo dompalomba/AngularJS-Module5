@@ -13,7 +13,7 @@
     else
       {$ctrl.registered = false}
       console.log ($ctrl.user)
-      conosole.log ($ctrl.confirmation_message)
+      console.log ($ctrl.confirmation_message)
   }
 
 })();
