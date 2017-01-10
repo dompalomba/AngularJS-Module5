@@ -1,0 +1,19 @@
+<div class="container">
+  <div ng-if= "!usrCtrl.registered">
+    Not Signed Up Yet.
+    <a ui-sref="signup"> Sign up Now!</a>
+  </div>
+  <div ng-if= "usrCtrl.registered">
+    Registered information:<br>
+    First Name: {{ usrCtrl.user.firstName}} <br>
+    Last Name: {{ usrCtrl.user.lastName}} <br>
+    Email: {{ usrCtrl.user.email}} <br>
+    Phone: {{ usrCtrl.user.phone }} <br>
+    ----------------------------- <br>
+    Menu items in favourite category: <br>
+    <menu-item ng-repeat="menuItem in usrCtrl.menu_items"
+               menu-item="menuItem">
+    </menu-item>
+    ----------------------------- <br>
+  </div>
+</div>

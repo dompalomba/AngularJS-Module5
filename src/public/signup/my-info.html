@@ -1,0 +1,75 @@
+  <p>Leave your data below</p>
+  <p>You will be subscribed to our newsletter!</p>
+  <br>
+<div class="container">
+  <fieldset>
+  <form name='myInfoForm' novalidate>
+    <input type='text' name= 'FirstName' placeholder="First Name" ng-model ='myInfo.user.firstName'
+          required
+          minlength="4"
+          ng-maxlength="20">
+    <span
+      ng-if="(myInfoForm.FirstName.$error.minlength || myInfoForm.FirstName.$error.required) && myInfoForm.FirstName.$touched"
+      >
+        FirstName must be at least 4 characters long
+    </span>
+    <span
+      ng-if="myInfoForm.FirstName.$error.maxlength && myInfoForm.FirstName.$touched"
+      >
+        FirstName must be max 20 characters long
+    </span>
+    <br>
+    <input type='text' name= 'LastName' placeholder="Last Name"
+          ng-model ='myInfo.user.lastName'
+          required
+          minlength="4"
+          ng-maxlength="20">
+    <span
+      ng-if="(myInfoForm.LastName.$error.minlength || myInfoForm.LastName.$error.required) && myInfoForm.LastName.$touched"
+      >
+        LastName must be at least 4 characters long
+    </span>
+    <span
+      ng-if="myInfoForm.LastName.$error.maxlength && myInfoForm.LastName.$touched"
+      >
+        LastName must be max 20 characters long
+    </span>
+    <br>
+    <input type='email' name= 'email' placeholder="Email address"
+      ng-model ="myInfo.user.email"
+      required
+      >
+    <span
+      ng-if="myInfoForm.email.$invalid && myInfoForm.email.$touched">
+                Required. Must be a valid email address: handle@domain format
+    </span>
+    <br>
+    <input type='text' name= 'phoneNumber' placeholder="Phone ###-###-####"
+      ng-model="myInfo.user.phone"
+      pattern="(\d{3})-(\d{3})-(\d{4})">
+      <span ng-if="myInfoForm.phoneNumber.$invalid && myInfoForm.phoneNumber.$touched">
+        Phone must be in the format ###-###-####.
+      </span>
+      <br>
+      <input type='text' name= 'menuNumber' placeholder="Favourite Dish"
+        ng-model="myInfo.user.dish"
+        required
+          >
+          <span
+            ng-if="myInfoForm.menuNumber.$error.required && myInfoForm.menuNumber.$touched">
+                      Required. Must be a valid short name for a Menu Item (example: SP)
+          </span>
+          <span id="mno-items" ng-if="myInfo.completed && !myInfo.validation">
+            No such menu number exists
+          </span>
+          <br>
+    <button class="btn-primary"
+      ng-if="myInfoForm.$valid"
+      ng-click="myInfo.submit()">Submit</button>
+  </form>
+</fieldset>
+      <div id="menu-items" ng-if= "myInfo.validation">
+        {{myInfo.confirmation_message}} <BR>
+      </div>
+    </div>
+</div>

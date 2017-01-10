@@ -1,0 +1,12 @@
+.ng-untouched {
+  background-color: #FFF;
+  color:     #000;
+}
+.ng-touched.ng-valid {
+    background-color: #0F0;
+    color:     #FFF;
+}
+.ng-touched.ng-invalid {
+    background-color: #D00;
+    color:     #FFF;
+}
